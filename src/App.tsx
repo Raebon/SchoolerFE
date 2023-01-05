@@ -1,10 +1,11 @@
 import SaveWord from './pages/SaveWord'
+import CreateQuestionAndAnswerPage from './pages/CreateQAPage/CreateQuestionAndAnswerPage'
 
 function App() {
 
   return (
-    <div className="App">
-      <SaveWord />
+    <div className="ui segment">
+      <CreateQuestionAndAnswerPage />
     </div>
   )
 }
