@@ -17,7 +17,6 @@ export const TextInput: React.FC<InputProps> = ({ name, label, control }) => {
         control={control}
         defaultValue=""
       />
-      {/*  {errors[name] && <p>{errors[name].message}</p>} */}
     </div>
   )
 }
