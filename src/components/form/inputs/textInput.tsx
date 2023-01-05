@@ -12,7 +12,7 @@ export const TextInput: React.FC<InputProps> = ({ name, label, control }) => {
     <div>
       <label htmlFor={name}>{label}:</label>
       <Controller
-        render={({ field }) => <input type="text" {...field} />}
+        render={({ field }) => <input className="input" type="text" {...field} />}
         name={name}
         control={control}
         defaultValue=""
