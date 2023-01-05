@@ -26,7 +26,6 @@ const SaveWord = () => {
     console.log(mixedWords, words)
   }
 
-
   const clearWords = () => setWords([])
 
   const clearWord = (wordId?: number) => {
@@ -46,7 +45,6 @@ const SaveWord = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextInput name="cz" label="České slovo" control={control} />
-      <br />
       <TextInput name="en" label="Anglické slovo" control={control} />
       <br />
       <button type="submit">Přidat slovo</button>

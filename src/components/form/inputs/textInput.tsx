@@ -9,7 +9,7 @@ type InputProps = {
 
 export const TextInput: React.FC<InputProps> = ({ name, label, control }) => {
   return (
-    <div>
+    <div className="my-2">
       <label htmlFor={name}>{label}:</label>
       <Controller
         render={({ field }) => <input className="input" type="text" {...field} />}
