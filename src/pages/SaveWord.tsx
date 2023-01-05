@@ -9,12 +9,12 @@ type Word = {
 };
 
 const SaveWord = () => {
-  const { register, control, handleSubmit, reset } = useForm<{ cz: string; en: string }>();
+  const { formState: { errors }, control, handleSubmit, reset } = useForm<{ cz: string; en: string }>();
   const [words, setWords] = React.useState<Word[]>([]);
   const [mixedWords, setMixedWords] = React.useState<Word[]>([])
 
   const onSubmit = (data: { cz: string; en: string }) => {
-    if ([undefined, ""].includes(data.cz) || [undefined, ""].includes(data.en)) return alert("Nelze přidat prázdný objekt")
+    // if (errors != null) return alert("Nelze přidat prázdný objekt")
 
     setWords([...words, { id: words.length, cz: data.cz, en: data.en }]);
     reset();
@@ -37,17 +37,18 @@ const SaveWord = () => {
   }
 
   //pomocná fce
-
   const shuffleArray = (array: Word[]) => {
     return array.sort(() => Math.random() - 0.5);
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <TextInput name="cz" label="České slovo" control={control} />
-      <TextInput name="en" label="Anglické slovo" control={control} />
+    <form className="ui fluid form" onSubmit={handleSubmit(onSubmit)}>
+
+      <TextInput name="cz" label="České slovo" placeholder="České slovo" control={control} errors={errors} required />
+      <TextInput name="en" label="Anglické slovo" placeholder="Anglické slovo" control={control} errors={errors} required />
       <br />
-      <button type="submit">Přidat slovo</button>
+      {/* udělat komponentu pro btn */}
+      <button className="ui button" type="submit">Přidat slovo</button>
       <br />
       <button type="button" onClick={mixWords}>Složit test</button>
 
