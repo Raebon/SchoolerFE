@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import { TextInput } from '../../../../components/form/inputs';
 import { QuestionAnswerBanner } from './components/questionAnswerBanner';
@@ -6,6 +6,7 @@ import { Question } from './types';
 import { PrimaryButton } from '../../../../components/elements/buttons';
 
 const CreateList = () => {
+  const [showAllAnswers, setShowAllAnswers] = useState(false)
   const { formState: { errors }, control, handleSubmit, reset } = useForm<{ question: string; answer: string }>();
   const [questions, setQuestions] = React.useState<Question[]>([]);
 
@@ -19,6 +20,9 @@ const CreateList = () => {
   const clearWord = (wordId?: number) => {
     return setQuestions(questions.filter(item => item.id !== wordId))
   }
+
+  const handleShowAllAnswers = () => setShowAllAnswers(prev => !prev)
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -38,13 +42,13 @@ const CreateList = () => {
         <div className='flex justify-center mt-10'>
           <PrimaryButton
             type="button"
-            onClick={clearWords}>Vyčistit</PrimaryButton>
+            onClick={clearWords}>Vyčistit list</PrimaryButton>
           <PrimaryButton
             type="button"
-            onClick={clearWords}>Zamixovat otázky</PrimaryButton>
+            onClick={handleShowAllAnswers}>{showAllAnswers ? "Otevřít všechny otázky" : "Zavřít všechny otázky"}</PrimaryButton>
           <PrimaryButton
             type="button"
-            onClick={clearWords}>Uložit</PrimaryButton>
+            onClick={clearWords}>Uložit list</PrimaryButton>
         </div>
       }
 
@@ -54,6 +58,7 @@ const CreateList = () => {
             key={`${item.id}-${new Date().toISOString()}`}
             onRemoveClick={() => clearWord(item.id)}
             question={item}
+            toogleAllAnswers={showAllAnswers}
           />))}
       </div>
     </form>
