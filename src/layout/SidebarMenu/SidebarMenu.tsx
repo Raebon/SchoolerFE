@@ -1,4 +1,3 @@
-import React from 'react'
 import { MenuItem } from './components/menuItem'
 import { useNavigate } from "react-router"
 import { MenuItemType } from "../types"
@@ -34,8 +33,7 @@ export const items: MenuItemType[] = [
 const SidebarMenu = () => {
   const navigate = useNavigate()
   return (
-
-    <aside className="w-64" aria-label="Sidebar">
+    <aside className="w-64 h-[91vh] bg-gray-50" aria-label="Sidebar">
       <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50">
         <ul className="space-y-2">
           {items.map(item => (
@@ -52,7 +50,6 @@ const SidebarMenu = () => {
         </ul>
       </div>
     </aside>
-
   )
 }
 

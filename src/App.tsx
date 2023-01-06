@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <div className="flex">
         <SidebarMenu />
-        <div className="w-full">
+        <div className="w-full bg-white">
           <Outlet />
         </div>
       </div>

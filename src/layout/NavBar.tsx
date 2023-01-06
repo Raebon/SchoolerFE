@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
 
 
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded bg-gray-50">
+    <nav className="border-gray-200 px-2 sm:px-4 py-2.5 rounded bg-gray-50">
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <a href="#" className="flex items-center">
           <img src={logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
