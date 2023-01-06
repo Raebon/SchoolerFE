@@ -45,8 +45,8 @@ const SaveWord = () => {
     <>
       <form className="ui fluid form" onSubmit={handleSubmit(onSubmit)}>
 
-        <TextInput name="question" label="Otázka" placeholder="Otázka..." control={control} errors={errors} required />
-        <TextInput name="answer" label="Odpověď" placeholder="Odpověď..." control={control} errors={errors} required />
+        <TextInput name="question" placeholder="Otázka..." control={control} errors={errors} required />
+        <TextInput name="answer" placeholder="Odpověď..." control={control} errors={errors} required />
         <br />
         {/* udělat komponentu pro btn */}
         <button className="ui button" type="submit">Přidat slovo</button>

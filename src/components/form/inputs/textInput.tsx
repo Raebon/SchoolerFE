@@ -3,18 +3,15 @@ import { Controller } from "react-hook-form";
 
 type InputProps = {
   name: string;
-  label: string;
   control: any; //Todo type
   placeholder?: string
   required?: boolean;
   errors: any
 }
 
-export const TextInput: React.FC<InputProps> = ({ name, label, control, placeholder, required }) => {
+export const TextInput: React.FC<InputProps> = ({ name, control, placeholder, required }) => {
   return (
     <div className="field">
-      <label className="label">{label}</label>
-
       <Controller
         render={({ field, fieldState: { error } }) => <>
           <input className="input" placeholder={placeholder} type="text" {...field} />

@@ -25,10 +25,10 @@ const CreateList = () => {
       <div className="ui vertically divided grid">
         <div className="three column row">
           <div className="column">
-            <TextInput name="question" label="Otázka" placeholder="Otázka..." control={control} errors={errors} required />
+            <TextInput name="question" placeholder="Otázka..." control={control} errors={errors} required />
           </div>
           <div className="column">
-            <TextInput name="answer" label="Odpověď" placeholder="Odpověď..." control={control} errors={errors} required />
+            <TextInput name="answer" placeholder="Odpověď..." control={control} errors={errors} required />
           </div>
           <div className="column">
             <button className="ui button" type="submit">Přidat slovo</button>
@@ -36,21 +36,14 @@ const CreateList = () => {
         </div>
       </div>
 
-      {/* udělat komponentu pro btn */}
-
-
-      <ul>
+      <div className="ui vertically divided grid">
         {words.map((word) => (
-          <div key={`${word.id}-${new Date().toISOString()}`}>
-            <li>{word.question} - {word.answer}</li> <button type="button" onClick={() => clearWord(word.id)}>Odstranit</button>
-          </div>
-        ))}
-      </ul>
+          <QuestionAnswerBanner
+            key={`${word.id}-${new Date().toISOString()}`}
+            onRemoveClick={() => clearWord(word.id)}
+          />))}
 
-      {words.map((word) => (
-        <QuestionAnswerBanner
-          key={`${word.id}-${new Date().toISOString()}`} />))}
-
+      </div>
       {words.length > 0 && <button className="ui button" type="button" onClick={clearWords}>Vyčistit list</button>}
 
     </form>
