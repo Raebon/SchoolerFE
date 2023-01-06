@@ -1,21 +1,20 @@
-import SaveWord from './pages/SaveWord'
-import CreateQuestionAndAnswerPage from './pages/CreateQAPage/CreateQuestionAndAnswerPage'
+import { Outlet } from 'react-router-dom'
 import NavBar from './layout/NavBar'
-import SidebarMenu from './layout/SidebarMenu'
+import SidebarMenu from './layout/SidebarMenu/SidebarMenu'
 
 function App() {
 
   return (
 
-    <>
+    <div className="h-screen">
       <NavBar />
       <div className="flex">
         <SidebarMenu />
         <div className="w-full">
-          <CreateQuestionAndAnswerPage />
+          <Outlet />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

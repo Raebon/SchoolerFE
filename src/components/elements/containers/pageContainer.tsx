@@ -1,5 +1,5 @@
 import React from 'react'
-import { Breadcrumb } from '../breadcrumbs/breadcrumb'
+import { Breadcrumb } from '../../../layout/breadcrumb/breadcrumb'
 Breadcrumb
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const PageContainer: React.FC<Props> = ({ title, children }) => {
+
   return (
     <>
       <Breadcrumb />
