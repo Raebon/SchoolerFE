@@ -2,22 +2,22 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { TextInput } from '../../../../components/form/inputs';
 import { QuestionAnswerBanner } from './components/questionAnswerBanner';
-import { Word } from './types';
+import { Question } from './types';
 import { PrimaryButton } from '../../../../components/elements/buttons';
 
 const CreateList = () => {
   const { formState: { errors }, control, handleSubmit, reset } = useForm<{ question: string; answer: string }>();
-  const [words, setWords] = React.useState<Word[]>([]);
+  const [questions, setQuestions] = React.useState<Question[]>([]);
 
   const onSubmit = (data: { question: string; answer: string }) => {
-    setWords([...words, { id: words.length, question: data.question, answer: data.answer }]);
+    setQuestions([...questions, { id: questions.length, question: data.question, answer: data.answer }]);
     reset();
   };
 
-  const clearWords = () => setWords([])
+  const clearWords = () => setQuestions([])
 
   const clearWord = (wordId?: number) => {
-    return setWords(words.filter(item => item.id !== wordId))
+    return setQuestions(questions.filter(item => item.id !== wordId))
   }
 
   return (
@@ -34,15 +34,28 @@ const CreateList = () => {
         </div>
       </div>
 
-      <div className="ui vertically divided grid">
-        {words.map((word) => (
-          <QuestionAnswerBanner
-            key={`${word.id}-${new Date().toISOString()}`}
-            onRemoveClick={() => clearWord(word.id)}
-          />))}
+      {questions.length > 0 &&
+        <div className='flex justify-center mt-10'>
+          <PrimaryButton
+            type="button"
+            onClick={clearWords}>Vyčistit</PrimaryButton>
+          <PrimaryButton
+            type="button"
+            onClick={clearWords}>Zamixovat otázky</PrimaryButton>
+          <PrimaryButton
+            type="button"
+            onClick={clearWords}>Uložit</PrimaryButton>
+        </div>
+      }
 
+      <div className="mb-10">
+        {questions.map((item) => (
+          <QuestionAnswerBanner
+            key={`${item.id}-${new Date().toISOString()}`}
+            onRemoveClick={() => clearWord(item.id)}
+            question={item}
+          />))}
       </div>
-      {words.length > 0 && <button className="ui button" type="button" onClick={clearWords}>Vyčistit list</button>}
     </form>
   )
 }

@@ -4,9 +4,7 @@ import SidebarMenu from './layout/SidebarMenu/SidebarMenu'
 import Footer from './layout/Footer'
 
 function App() {
-
   return (
-
     <div className="h-screen">
       <NavBar />
       <div className="flex">
