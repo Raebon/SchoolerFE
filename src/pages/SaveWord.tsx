@@ -2,13 +2,15 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { TextInput } from '../components/form/inputs';
 
-import CreateList from './CreateQAPage/features/create-list/createList';
+import CreateList from './CreateQAPage/features/create-question-and-answer-list/createList';
 
 type Word = {
   id?: number;
   question: string;
   answer: string;
 };
+
+/* tahle page se vymaže až zní vezmu metodu pro shuffle */
 
 const SaveWord = () => {
   const { formState: { errors }, control, handleSubmit, reset } = useForm<{ question: string; answer: string }>();

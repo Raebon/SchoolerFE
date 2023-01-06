@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { TextInput } from '../../../../components/form/inputs';
 import { QuestionAnswerBanner } from './components/questionAnswerBanner';
 import { Word } from './types';
+import { PrimaryButton } from '../../../../components/elements/buttons';
 
 const CreateList = () => {
   const { formState: { errors }, control, handleSubmit, reset } = useForm<{ question: string; answer: string }>();
@@ -13,7 +14,6 @@ const CreateList = () => {
     reset();
   };
 
-
   const clearWords = () => setWords([])
 
   const clearWord = (wordId?: number) => {
@@ -21,18 +21,16 @@ const CreateList = () => {
   }
 
   return (
-    <form className="ui fluid form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="ui vertically divided grid">
-        <div className="three column row">
-          <div className="column">
-            <TextInput name="question" placeholder="Otázka..." control={control} errors={errors} required />
-          </div>
-          <div className="column">
-            <TextInput name="answer" placeholder="Odpověď..." control={control} errors={errors} required />
-          </div>
-          <div className="column">
-            <button className="ui button" type="submit">Přidat slovo</button>
-          </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex gap-4 ">
+        <div className="flex-1">
+          <TextInput name="question" placeholder="Otázka..." control={control} errors={errors} required />
+        </div>
+        <div className="flex-1">
+          <TextInput name="answer" placeholder="Odpověď..." control={control} errors={errors} required />
+        </div>
+        <div>
+          <PrimaryButton type="submit">Přidat otázku</PrimaryButton>
         </div>
       </div>
 
@@ -45,7 +43,6 @@ const CreateList = () => {
 
       </div>
       {words.length > 0 && <button className="ui button" type="button" onClick={clearWords}>Vyčistit list</button>}
-
     </form>
   )
 }
