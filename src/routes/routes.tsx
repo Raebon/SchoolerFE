@@ -32,8 +32,8 @@ export const RoutesComponent = () => {
                 </PrivateRoute>
               }>
               <Route path={`/`} element={<CreateQandAPage />} />
-              <Route path={`create-test`} element={<CreateQandAPage />} />
-              <Route path={`create-test/test-1`} element={<CreateQandAPage />} />
+              <Route path={`teacher-tool/create-test`} element={<CreateQandAPage />} />
+              <Route path={`teacher-tool`} element={<CreateQandAPage />} />
 
               <Route path={`*`} element={<div>Stránka nenalezena</div>} />
             </Route>

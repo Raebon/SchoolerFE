@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import NavBar from './layout/NavBar'
 import SidebarMenu from './layout/SidebarMenu/SidebarMenu'
+import Footer from './layout/Footer'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <SidebarMenu />
         <div className="w-full bg-white">
           <Outlet />
+          <Footer />
         </div>
       </div>
     </div>

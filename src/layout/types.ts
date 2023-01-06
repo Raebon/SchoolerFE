@@ -3,5 +3,11 @@ export type MenuItemType = {
   name: string;
   path: string;
   icon: JSX.Element;
-  children: any[]
+  children: MenuItemChildrenType[]
+}
+
+export type MenuItemChildrenType = {
+  index: number;
+  name: string;
+  path: string;
 }

@@ -41,7 +41,7 @@ export const Breadcrumb = () => {
       <ol className="inline-flex items-center mb-3 sm:mb-0">
         <li>
           <div className="flex items-center">
-            <span className="px-3 py-2 text-sm font-normal text-center text-gray-400">{path[0].name}
+            <span className="px-3 py-2 text-sm font-normal text-center text-gray-400">{path[0]?.name}
             </span>
           </div>
         </li>
