@@ -7,10 +7,15 @@ function App() {
 
   return (
 
-    <div className="" >
+    <>
       <NavBar />
-      <CreateQuestionAndAnswerPage />
-    </div>
+      <div className="flex">
+        <SidebarMenu />
+        <div className="w-full">
+          <CreateQuestionAndAnswerPage />
+        </div>
+      </div>
+    </>
   )
 }
 
