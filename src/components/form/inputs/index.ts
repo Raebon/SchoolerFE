@@ -1,3 +1,4 @@
 import { TextInput } from "./textInput";
+import { Toggle } from "./toggle";
 
-export { TextInput }
+export { TextInput, Toggle }

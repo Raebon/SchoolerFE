@@ -1,6 +1,11 @@
 export type Question = {
   id: number;
   question: string;
-  answer: string;
+  answers: Answer[];
   hidden: boolean
+}
+
+export type Answer = {
+  answer: string;
+  isTrue: boolean;
 }

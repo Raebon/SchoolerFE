@@ -34,7 +34,7 @@ export const items: MenuItemType[] = [
 const SidebarMenu = () => {
   const navigate = useNavigate()
   return (
-    <aside className="w-64 h-[90vh] bg-gray-50">
+    <aside className="w-64 h-[91.5vh] bg-gray-50">
       <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50">
         <ul className="space-y-2">
           {items.map((item) => (

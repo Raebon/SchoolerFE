@@ -13,7 +13,7 @@ export const PageContainer: React.FC<Props> = ({ title, children }) => {
     <>
       <Breadcrumb />
       <div className="p-5">
-        <h1 className="text-5xl text-gray-700 mb-10">{title}</h1>
+        <h1 className="text-5xl text-gray-700 mb-6">{title}</h1>
         {children}
       </div>
     </>

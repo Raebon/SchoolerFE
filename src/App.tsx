@@ -7,12 +7,15 @@ function App() {
   return (
     <div className="h-screen">
       <NavBar />
-      <div className="flex">
+      <div className="flex bg-gray-50">
         <SidebarMenu />
-        <div className="w-full bg-white">
+        <div className="w-full bg-white rounded-t-lg">
           <Outlet />
-          <Footer />
+
         </div>
+        {/* <div className="bg-gray-50 w-[20%]">
+          sad
+        </div> */}
       </div>
     </div>
   )
