@@ -5,6 +5,7 @@ import RestrictedRoute from './RestrictedRoute'
 
 const App = React.lazy(() => import('../App'))
 const CreateQandAPage = React.lazy(() => import('../pages/CreateQAPage/CreateQuestionAndAnswerPage'))
+const PageNotFound = React.lazy(() => import('../pages/PageNotFound'))
 
 
 export const RoutesComponent = () => {
@@ -35,7 +36,7 @@ export const RoutesComponent = () => {
               <Route path={`tool/create-test`} element={<CreateQandAPage />} />
               <Route path={`tool`} element={<CreateQandAPage />} />
 
-              <Route path={`*`} element={<div>Stránka nenalezena</div>} />
+              <Route path={`*`} element={<PageNotFound />} />
             </Route>
           </Routes>
           {/*  </AuthProvider> */}

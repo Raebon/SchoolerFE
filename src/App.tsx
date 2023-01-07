@@ -5,18 +5,18 @@ import Footer from './layout/Footer'
 
 function App() {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-gray-50">
       <NavBar />
-      <div className="flex bg-gray-50">
+      <div className="flex">
         <SidebarMenu />
         <div className="w-full bg-white rounded-t-lg">
           <Outlet />
-
         </div>
         {/* <div className="bg-gray-50 w-[20%]">
           sad
         </div> */}
       </div>
+      <Footer />
     </div>
   )
 }

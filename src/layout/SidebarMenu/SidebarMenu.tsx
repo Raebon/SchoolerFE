@@ -6,14 +6,18 @@ import BlankUser from "../../assets/img/profile-picture-5.jpg"
 
 export const items: MenuItemType[] = [
   {
-    index: 0,
     name: "Domů",
     path: "home",
     icon: <HomeIcon />,
     children: []
   },
   {
-    index: 1,
+    name: "Procvičování",
+    path: "practise",
+    icon: <GraduationCapIcon />,
+    children: []
+  },
+  {
     name: "Nástroje",
     path: "tool",
     icon: <ScissorsIcon />,
@@ -37,12 +41,12 @@ const SidebarMenu = () => {
 
   const logout = () => console.log("logout")
   return (
-    <aside className="w-64 h-[91.5vh] bg-gray-50">
+    <aside className="w-64  bg-gray-50">
       <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50">
         <ul className="space-y-2">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <MenuItem
-              key={item.index}
+              key={index}
               name={item.name}
               path={item.path}
               icon={item.icon}
@@ -53,9 +57,9 @@ const SidebarMenu = () => {
         <ul className="pt-4 mt-4 space-y-2 border-t border-gray-200">
           <div className="flex items-center space-x-4 mb-4">
             <img className="w-10 h-10 rounded-full" alt="" src={BlankUser} />
-            <div className="font-medium dark:text-white">
+            <div className="font-medium">
               <div>Jan Novák</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">uživatel</div>
+              <div className="text-sm text-gray-500">uživatel</div>
             </div>
           </div>
           <li>

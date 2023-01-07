@@ -4,7 +4,7 @@ import { PageContainer } from '../../components/elements/containers/pageContaine
 
 const CreateQuestionAndAnswerPage = () => {
   return (
-    <PageContainer title="Tvorba testu">
+    <PageContainer title="Vytvořit test">
       <CreateList />
     </PageContainer>
   )
