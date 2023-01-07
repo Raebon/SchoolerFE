@@ -14,7 +14,7 @@ const errorInputClassName = "bg-red-50 border-red-500 text-red-900 placeholder-r
 const defaultInputClassName = "bg-gray-50 border-gray-300 text-gray-900 outline-blue-300 focus:border-blue-300"
 
 const errorLabelClassName = "bg-red-50 text-red-500 peer-focus:text-red-500"
-const defaultLabelClassName = "bg-gray-50 text-gray-900 peer-focus:text-blue-300"
+const defaultLabelClassName = "bg-gray-50 text-gray-900 peer-focus:text-gray-600"
 
 export const TextInput: React.FC<InputProps> = ({ id, name, control, label, required }) => {
   return (
@@ -26,7 +26,8 @@ export const TextInput: React.FC<InputProps> = ({ id, name, control, label, requ
               id={`outlined-${id}`}
               className={`${error ? errorInputClassName : defaultInputClassName} block w-full p-2.5 border text-sm rounded-lg focus:outline appearance-none peer`}
               type="text" {...field}
-              placeholder=" " />
+              placeholder=" "
+            />
 
             <label
               htmlFor={`outlined-${id}`}
@@ -41,7 +42,7 @@ export const TextInput: React.FC<InputProps> = ({ id, name, control, label, requ
         </>}
         name={name}
         control={control}
-        defaultValue={undefined}
+        defaultValue=""
         rules={{ required: required }}
       />
     </>
