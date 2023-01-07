@@ -9,7 +9,7 @@ function App() {
       <NavBar />
       <div className="flex">
         <SidebarMenu />
-        <div className="w-full bg-white rounded-t-lg">
+        <div className="w-full bg-white rounded-l-lg drop-shadow-md">
           <Outlet />
         </div>
         {/* <div className="bg-gray-50 w-[20%]">
