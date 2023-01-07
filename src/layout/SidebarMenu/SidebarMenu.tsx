@@ -3,6 +3,7 @@ import { useNavigate } from "react-router"
 import { MenuItemType } from "../types"
 import { HomeIcon, GraduationCapIcon, InfoIcon, ScissorsIcon, LogOutIcon, UserIcon, CogIcon } from "../../assets/icons"
 import BlankUser from "../../assets/img/profile-picture-5.jpg"
+import { Verified, Premium, Boosted } from '../../components/elements/badges'
 
 export const items: MenuItemType[] = [
   {
@@ -58,7 +59,7 @@ const SidebarMenu = () => {
           <div className="flex items-center space-x-4 mb-4">
             <img className="w-10 h-10 rounded-full" alt="" src={BlankUser} />
             <div className="font-medium">
-              <div>Jan Novák</div>
+              <div className="flex gap-1"><span>Jan Novák</span><Verified /> <Premium /> <Boosted /></div>
               <div className="text-sm text-gray-500">uživatel</div>
             </div>
           </div>
