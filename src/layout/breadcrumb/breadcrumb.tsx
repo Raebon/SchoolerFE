@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
-import { items } from "../SidebarMenu/SidebarMenu"
+import { items, bottomItems } from "../SidebarMenu/SidebarMenu"
 import { MenuItemType } from "../types"
 
 const filterCurrentMenuItem = (items: MenuItemType[], paths: string[]) => {
@@ -15,15 +15,12 @@ const BreadcrumbItem: React.FC<Props> = ({ name }) => {
   return (
     <>
       {name && (
-        <>
-          <span className="mx-2 text-gray-400">/</span>
-          <li>
-            <div className="flex items-center">
-              <span className="px-3 py-2 text-sm font-normal text-center text-gray-400">{name}
-              </span>
-            </div>
-          </li>
-        </>
+        <li>
+          <div className="flex items-center">
+            <span className="px-3 py-2 text-sm font-normal text-center text-gray-400">{name}
+            </span>
+          </div>
+        </li>
       )}
     </>
   )
@@ -32,7 +29,7 @@ const BreadcrumbItem: React.FC<Props> = ({ name }) => {
 export const Breadcrumb = () => {
   const location = useLocation();
   const path = filterCurrentMenuItem(
-    items,
+    items.concat(bottomItems),
     location.pathname.split('/').filter(val => val !== '')
   );
 
@@ -41,10 +38,13 @@ export const Breadcrumb = () => {
       <ol className="inline-flex items-center mb-3 sm:mb-0">
         <li>
           <div className="flex items-center">
-            <span className="px-3 py-2 text-sm font-normal text-center text-gray-400">{path[0]?.name}
+            <span className="flex gap-2 px-3 py-2 text-sm font-normal text-center text-gray-400">
+              {path[0]?.smallIcon}
+              {path[0]?.name}
             </span>
           </div>
         </li>
+        <span className="mx-2 text-gray-400">/</span>
         {path[0]?.children.map((item, index) => {
           if (location.pathname !== `/${item.path}`) return null;
           return <BreadcrumbItem key={index} name={item.name} />;

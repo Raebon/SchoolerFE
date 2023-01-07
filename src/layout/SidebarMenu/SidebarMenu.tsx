@@ -10,18 +10,21 @@ export const items: MenuItemType[] = [
     name: "Domů",
     path: "home",
     icon: <HomeIcon />,
+    smallIcon: <HomeIcon xs />,
     children: []
   },
   {
     name: "Procvičování",
     path: "practise",
     icon: <GraduationCapIcon />,
+    smallIcon: <GraduationCapIcon xs />,
     children: []
   },
   {
     name: "Nástroje",
     path: "tool",
     icon: <ScissorsIcon />,
+    smallIcon: <ScissorsIcon xs />,
     children: [
       {
         index: 0,
@@ -34,6 +37,23 @@ export const items: MenuItemType[] = [
         path: "tool/create-note",
       }
     ]
+  }
+]
+
+export const bottomItems: MenuItemType[] = [
+  {
+    name: "Nastavení",
+    path: "settings",
+    icon: <CogIcon />,
+    smallIcon: <CogIcon xs />,
+    children: []
+  },
+  {
+    name: "Nápověda",
+    path: "help",
+    icon: <InfoIcon />,
+    smallIcon: <InfoIcon xs />,
+    children: []
   }
 ]
 
@@ -65,20 +85,11 @@ const SidebarMenu = () => {
           </div>
           <li>
             <span
-              onClick={logout}
+              onClick={() => navigate(`/settings`)}
               className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
             >
               <CogIcon />
               <span className="ml-3">Nastavení</span>
-            </span>
-          </li>
-          <li>
-            <span
-              onClick={logout}
-              className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
-            >
-              <LogOutIcon />
-              <span className="ml-3">Odhlásit se</span>
             </span>
           </li>
           <li>
@@ -90,6 +101,16 @@ const SidebarMenu = () => {
               <span className="ml-3">Napověda</span>
             </span>
           </li>
+          <li>
+            <span
+              onClick={logout}
+              className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
+            >
+              <LogOutIcon />
+              <span className="ml-3">Odhlásit se</span>
+            </span>
+          </li>
+
         </ul>
       </div>
     </aside>

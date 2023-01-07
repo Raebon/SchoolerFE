@@ -1,7 +1,8 @@
 export type MenuItemType = {
   name: string;
   path: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
+  smallIcon?: JSX.Element;
   children: MenuItemChildrenType[]
 }
 
