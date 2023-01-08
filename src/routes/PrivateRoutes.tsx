@@ -10,7 +10,7 @@ const PrivateRoute: React.FC<Props> = ({ children }) => {
   //const { accessToken } = useContext<AuthContextType | any>(AuthContext)
   const hasJWT = () => {
     //return accessToken
-    return true
+    return false
   }
 
   return hasJWT() ? children : <Navigate to="/" />;

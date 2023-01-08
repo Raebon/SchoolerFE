@@ -7,6 +7,9 @@ const App = React.lazy(() => import('../App'))
 const CreateQandAPage = React.lazy(() => import('../pages/CreateQAPage/CreateQuestionAndAnswerPage'))
 const PageNotFound = React.lazy(() => import('../pages/PageNotFound'))
 
+const Auth = React.lazy(() => import('../auth/Auth'))
+const Login = React.lazy(() => import('../auth/components/Login'))
+
 
 export const RoutesComponent = () => {
   return (
@@ -15,15 +18,15 @@ export const RoutesComponent = () => {
         <React.Suspense fallback={"načítání..."}>
           {/* <AuthProvider> */}
           <Routes>
-            {/* <Route path={``} element={
-                <RestrictedRoute>
-                  <Auth />
-                </RestrictedRoute>
-              }>
-                <Route path={`/`} element={<Login />} />
-                <Route path={`login`} element={<Login />} />
-                <Route path={`registration`} element={<Registration />} />
-              </Route> */}
+            <Route path={``} element={
+              <RestrictedRoute>
+                <Auth />
+              </RestrictedRoute>
+            }>
+              <Route path={`/`} element={<Login />} />
+              <Route path={`login`} element={<Login />} />
+              {/* <Route path={`registration`} element={<Registration />} /> */}
+            </Route>
 
             <Route
               path={``}

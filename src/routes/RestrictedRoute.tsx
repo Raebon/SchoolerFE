@@ -9,7 +9,7 @@ interface Props {
 const RestrictedRoute: React.FC<Props> = ({ children }) => {
   // const { accessToken } = useContext<AuthContextType | any>(AuthContext)
   const hasJWT = () => {
-    return true
+    return false
   }
 
   return hasJWT() ? <Navigate to="/home" /> : children;

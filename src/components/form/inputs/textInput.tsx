@@ -8,6 +8,7 @@ type InputProps = {
   label?: string
   required?: boolean;
   errors: any
+  type?: "text" | "password" | "email" | "number" | "tel" | "url";
 }
 
 const errorInputClassName = "bg-red-50 border-red-500 text-red-900 placeholder-red-700 outline-red-500 focus:border-red-500"
@@ -16,7 +17,7 @@ const defaultInputClassName = "bg-gray-50 border-gray-300 text-gray-900 outline-
 const errorLabelClassName = "bg-red-50 text-red-500 peer-focus:text-red-500"
 const defaultLabelClassName = "bg-gray-50 text-gray-900 peer-focus:text-gray-600"
 
-export const TextInput: React.FC<InputProps> = ({ id, name, control, label, required }) => {
+export const TextInput: React.FC<InputProps> = ({ id, name, control, label, required, type = "text" }) => {
   return (
     <>
       <Controller
@@ -25,7 +26,7 @@ export const TextInput: React.FC<InputProps> = ({ id, name, control, label, requ
             <input
               id={`outlined-${id}`}
               className={`${error ? errorInputClassName : defaultInputClassName} block w-full p-2.5 border text-sm rounded-lg focus:outline appearance-none peer`}
-              type="text" {...field}
+              type={type} {...field}
               placeholder=" "
             />
 

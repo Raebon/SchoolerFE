@@ -3,11 +3,12 @@ export type MenuItemType = {
   path: string;
   icon?: JSX.Element;
   smallIcon?: JSX.Element;
+  news?: number;
   children: MenuItemChildrenType[]
 }
 
 export type MenuItemChildrenType = {
-  index: number;
+  index?: number;
   name: string;
   path: string;
 }

@@ -1,7 +1,7 @@
 import { MenuItem } from './components/menuItem'
 import { useNavigate } from "react-router"
 import { MenuItemType } from "../types"
-import { HomeIcon, GraduationCapIcon, InfoIcon, ScissorsIcon, LogOutIcon, UserIcon, CogIcon } from "../../assets/icons"
+import { HomeIcon, GraduationCapIcon, InfoIcon, ScissorsIcon, LogOutIcon, UserIcon, CogIcon, Inbox } from "../../assets/icons"
 import BlankUser from "../../assets/img/profile-picture-5.jpg"
 import { Verified, Premium, Boosted } from '../../components/elements/badges'
 
@@ -14,11 +14,24 @@ export const items: MenuItemType[] = [
     children: []
   },
   {
-    name: "Procvičování",
+    name: "Učení",
     path: "practise",
     icon: <GraduationCapIcon />,
     smallIcon: <GraduationCapIcon xs />,
-    children: []
+    children: [
+      {
+        name: "Drillování",
+        path: "practise/test",
+      },
+      {
+        name: "Test na nečisto",
+        path: "practise/easy-test",
+      },
+      {
+        name: "Test na ostro",
+        path: "practise/hard-test",
+      }
+    ]
   },
   {
     name: "Nástroje",
@@ -27,16 +40,22 @@ export const items: MenuItemType[] = [
     smallIcon: <ScissorsIcon xs />,
     children: [
       {
-        index: 0,
         name: "Vytvořit test",
         path: "tool/create-test",
       },
       {
-        index: 0,
         name: "Vytvořit poznámky",
         path: "tool/create-note",
       }
     ]
+  },
+  {
+    name: "Inbox",
+    path: "inbox",
+    icon: <Inbox />,
+    smallIcon: <Inbox xs />,
+    news: 3,
+    children: []
   }
 ]
 
@@ -72,6 +91,7 @@ const SidebarMenu = () => {
               path={item.path}
               icon={item.icon}
               children={item.children}
+              news={item.news}
             />
           ))}
         </ul>
