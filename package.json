@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-client:server-app:generate": "dotnet run --project ../APIClientGenerator https://localhost:44350/swagger/v1/swagger.json src/service/service.ts TypeScript"
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",
