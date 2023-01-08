@@ -7,6 +7,7 @@ export type AuthContextType = {
   accessToken: string | null,
   refreshToken: string | null,
   loginLoading: boolean,
+  loginError: boolean,
   setAccessToken: (e: any) => void,
   setRefreshToken: (e: any) => void,
   loginUser: (e: any) => void,
@@ -29,6 +30,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
   const [accessToken, setAccessToken] = useState<string | null>(localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : "")
   const [refreshToken, setRefreshToken] = useState<string | null>(localStorage.getItem('refreshToken') ? localStorage.getItem('refreshToken') : "")
   const [loginLoading, setLoginLoading] = useState<boolean>(false)
+  const [loginError, setLoginError] = useState<boolean>(false)
 
   const [loading, setLoading] = useState(true)
 
@@ -43,8 +45,12 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       localStorage.setItem('accessToken', String(res.accessToken ?? null))
       localStorage.setItem('refreshToken', String(res.refreshToken ?? null))
       setLoginLoading(false)
+      setLoginError(false)
       history('/')
-    }).catch(err => setLoginLoading(false))
+    }).catch(err => {
+      setLoginLoading(false)
+      setLoginError(true)
+    })
   }
 
   let logoutUser = () => {
@@ -60,6 +66,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
     accessToken: accessToken,
     refreshToken: refreshToken,
     loginLoading: loginLoading,
+    loginError: loginError,
     setAccessToken: setAccessToken,
     setRefreshToken: setRefreshToken,
     loginUser: loginUser,
