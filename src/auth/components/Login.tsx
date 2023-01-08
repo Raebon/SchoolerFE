@@ -1,13 +1,17 @@
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { TextInput } from '../../components/form/inputs'
 import { PrimaryButton } from '../../components/elements/buttons';
 import Footer from '../../layout/Footer'
+import AuthService from "../../service/auth-service"
+import AuthContext, { AuthContextType } from "../../context/AuthContext"
 
 const Login = () => {
-  const { formState: { errors }, control, handleSubmit, reset } = useForm<{ email: string; password: string }>();
+  let { loginUser, loginLoading } = useContext<AuthContextType | any>(AuthContext)
+  const { formState: { errors }, control, handleSubmit } = useForm<{ login: string; password: string }>();
 
-  const onSubmit = (event: { email: string; password: string }) => {
-    console.log(event)
+  const onSubmit = (event: { login: string; password: string }) => {
+    loginUser(event)
   }
   return (
     <>
@@ -29,7 +33,7 @@ const Login = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <span className="font-extrabold text-3xl text-blue-700 mb-10 ">Přihlášení</span>
                 <div className="mb-4 mt-4">
-                  <TextInput id="email" name="email" label="E-mail" control={control} errors={errors} required />
+                  <TextInput id="login" name="login" label="E-mail" control={control} errors={errors} required />
                 </div>
 
                 <div className="mb-2">
@@ -43,6 +47,7 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                   <PrimaryButton
                     type="submit"
+                    loading={loginLoading}
                   >
                     Přihlásit
                   </PrimaryButton>

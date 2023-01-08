@@ -14,5 +14,6 @@ import { LoginIcon } from "./LoginIcon"
 import { UserIcon } from "./UserIcon"
 import { CogIcon } from "./CogIcon"
 import { Inbox } from "./Inbox"
+import { LoadingSpinnerIcon } from "./LoadingSpinnerIcon"
 
-export { HomeIcon, GraduationCapIcon, InfoIcon, LogOutIcon, ChevronDownIcon, EyeIcon, EyeoffIcon, TrashIcon, PlusIcon, SaveIcon, PlusCircleIcon, ScissorsIcon, LoginIcon, UserIcon, CogIcon, Inbox }
+export { HomeIcon, GraduationCapIcon, InfoIcon, LogOutIcon, ChevronDownIcon, EyeIcon, EyeoffIcon, TrashIcon, PlusIcon, SaveIcon, PlusCircleIcon, ScissorsIcon, LoginIcon, UserIcon, CogIcon, Inbox, LoadingSpinnerIcon }

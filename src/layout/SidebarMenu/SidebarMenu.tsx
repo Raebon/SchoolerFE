@@ -1,9 +1,11 @@
+import { useContext } from 'react'
 import { MenuItem } from './components/menuItem'
 import { useNavigate } from "react-router"
 import { MenuItemType } from "../types"
 import { HomeIcon, GraduationCapIcon, InfoIcon, ScissorsIcon, LogOutIcon, UserIcon, CogIcon, Inbox } from "../../assets/icons"
 import BlankUser from "../../assets/img/profile-picture-5.jpg"
 import { Verified, Premium, Boosted } from '../../components/elements/badges'
+import AuthContext, { AuthContextType } from "../../context/AuthContext"
 
 export const items: MenuItemType[] = [
   {
@@ -77,9 +79,8 @@ export const bottomItems: MenuItemType[] = [
 ]
 
 const SidebarMenu = () => {
+  let { logoutUser } = useContext<AuthContextType | any>(AuthContext)
   const navigate = useNavigate()
-
-  const logout = () => console.log("logout")
   return (
     <aside className="w-64  bg-gray-50">
       <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50">
@@ -123,7 +124,7 @@ const SidebarMenu = () => {
           </li>
           <li>
             <span
-              onClick={logout}
+              onClick={logoutUser}
               className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
             >
               <LogOutIcon />
