@@ -57,19 +57,19 @@ const CreateList = () => {
       </InfoAlert>
       <div className="flex mb-5">
         <div className="flex-1">
-          <TextInput name="question" placeholder="Otázka..." control={control} errors={errors} required />
+          <TextInput id="question" name="question" label="Otázka" control={control} errors={errors} required />
         </div>
       </div>
       <div className="flex mb-5">
         <div className="flex-1">
-          <TextInput name="answer" placeholder="Odpověď..." control={control} errors={errors} required />
+          <TextInput id="answer" name="answer" label="Odpověď" control={control} errors={errors} required />
         </div>
       </div>
       {addedAnswerInputFields.map((item, index) =>
         <AnswerInputWithToggle
           key={index}
           name={index.toString()}
-          placeholder="Odpověď..."
+          labelInput="Další možnost odpověďi"
           control={control}
           errors={errors}
           label="správná odpověď"

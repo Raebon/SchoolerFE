@@ -9,10 +9,11 @@ interface Props {
   name: string;
   icon?: React.ReactNode;
   path: string;
+  news?: number;
   children: MenuItemChildrenType[];
 }
 
-export const MenuItem: React.FC<Props> = ({ name, icon, path, children }) => {
+export const MenuItem: React.FC<Props> = ({ name, icon, path, children, news }) => {
   const [showMenuChildreItems, setShowMenuChildreItems] = useState<boolean>(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -75,6 +76,9 @@ export const MenuItem: React.FC<Props> = ({ name, icon, path, children }) => {
       >
         {icon}
         <span className="ml-3">{name}</span>
+        {news !== undefined && !isNaN(news) && (
+          <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">{news}</span>
+        )}
       </span>
     </li>
   );

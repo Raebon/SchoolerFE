@@ -12,7 +12,7 @@ const NavBar = () => {
             src={logo}
             className="h-6 mr-3 sm:h-9"
             alt="SchoolTooler" />
-          <span className="self-center text-xl font-semibold whitespace-nowrap">School Tooler</span>
+          <span className="self-center text-xl font-semibold whitespace-nowrap">Schooler</span>
         </a>
         <button
           type="button"

@@ -5,17 +5,17 @@ interface Props {
   label: string
   name: string;
   control: any; //Todo type
-  placeholder?: string
+  labelInput?: string
   required?: boolean;
   errors: any
 }
 
-export const AnswerInputWithToggle: React.FC<Props> = ({ label, name, control, placeholder, required, errors }) => {
+export const AnswerInputWithToggle: React.FC<Props> = ({ label, name, control, labelInput, required, errors }) => {
   return (
     <>
       <div className="flex mb-2">
         <div className="flex-1">
-          <TextInput name={`answer${name}`} placeholder={placeholder} control={control} errors={errors} required={required} />
+          <TextInput id={`answer${name}`} name={`answer${name}`} label={labelInput} control={control} errors={errors} required={required} />
         </div>
       </div>
       <div className="flex mb-3">
