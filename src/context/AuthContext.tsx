@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
-import axios from "axios"
 import { useNavigate } from 'react-router-dom'
-import AuthService from "../service/auth-service"
+import AuthService from "../service/services/auth-service"
+import TokenService from "../service/services/token-service";
 
 export type AuthContextType = {
   accessToken: string | null,
@@ -27,8 +27,8 @@ interface ILoginValue {
 }
 
 export const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [accessToken, setAccessToken] = useState<string | null>(localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : "")
-  const [refreshToken, setRefreshToken] = useState<string | null>(localStorage.getItem('refreshToken') ? localStorage.getItem('refreshToken') : "")
+  const [accessToken, setAccessToken] = useState<string | null>(TokenService.getLocalAccessToken())
+  const [refreshToken, setRefreshToken] = useState<string | null>(TokenService.getLocalRefreshToken())
   const [loginLoading, setLoginLoading] = useState<boolean>(false)
   const [loginError, setLoginError] = useState<boolean>(false)
 
@@ -42,8 +42,8 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       setLoading(false)
       setAccessToken(res.accessToken ?? null)
       setRefreshToken(res.refreshToken ?? null)
-      localStorage.setItem('accessToken', String(res.accessToken ?? null))
-      localStorage.setItem('refreshToken', String(res.refreshToken ?? null))
+      TokenService.setAccessToken(String(res.accessToken))
+      TokenService.setRefreshToken(String(res.refreshToken))
       setLoginLoading(false)
       setLoginError(false)
       history('/')
@@ -57,8 +57,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
     setAccessToken(null)
     setRefreshToken(null)
     setLoading(false)
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
+    TokenService.removeTokens()
     history('/login')
   }
 
