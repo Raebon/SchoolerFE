@@ -9,7 +9,6 @@ const MainPage = () => {
   }
 
   if (error) {
-    console.log(error)
     return <div>Error...</div>
   }
 
@@ -18,7 +17,7 @@ const MainPage = () => {
   }
 
   return (
-    <PageContainer title="">
+    <PageContainer title="Domov">
       <div className="">
         {data.data.map(({ id, firstName, lastName, email, role }) => {
           return (
