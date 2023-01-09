@@ -2,12 +2,12 @@ import { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { TextInput } from '../../components/form/inputs'
 import { PrimaryButton } from '../../components/elements/buttons';
-import Footer from '../../layout/Footer'
-import AuthService from "../../service/auth-service"
 import AuthContext, { AuthContextType } from "../../context/AuthContext"
+import { DangerAlert } from "../../components/elements/alerts"
+import classNames from 'classnames';
 
 const Login = () => {
-  let { loginUser, loginLoading } = useContext<AuthContextType | any>(AuthContext)
+  let { loginUser, loginLoading, loginError } = useContext<AuthContextType | any>(AuthContext)
   const { formState: { errors }, control, handleSubmit } = useForm<{ login: string; password: string }>();
 
   const onSubmit = (event: { login: string; password: string }) => {
@@ -15,7 +15,7 @@ const Login = () => {
   }
   return (
     <>
-      <section className="h-[85vh]">
+      <section className="h-[78vh]">
         <div className="px-6 h-full text-gray-800">
           <div
             className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
@@ -37,13 +37,14 @@ const Login = () => {
                 </div>
 
                 <div className="mb-2">
-                  <TextInput id="password" name="password" label="Heslo" control={control} errors={errors} required />
+                  <TextInput id="password" type="password" name="password" label="Heslo" control={control} errors={errors} required />
                 </div>
-
+                <div className={classNames({ 'hidden': !loginError })}>
+                  <DangerAlert>Zkontrolujte správnost údajů!</DangerAlert>
+                </div>
                 <div className="flex justify-between items-center mb-4">
                   <a href="#!" className="text-blue-700 hover:text-blue-800"><small>Zapomněl jste heslo?</small></a>
                 </div>
-
                 <div className="text-center lg:text-left">
                   <PrimaryButton
                     type="submit"
@@ -64,7 +65,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   )
 }
